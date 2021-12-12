@@ -1,7 +1,5 @@
 # Lab 3
 
-![teaser](acc_prune_ratio.png)
-
 ```bash
 ├── data 
     └── cl
@@ -47,3 +45,6 @@
 
 ## V. Important Notes
 Please use only clean validation data (valid.h5) to design the pruning defense. And use test data (test.h5 and bd_test.h5) to evaluate the models. 
+
+## VI. Results
+![teaser](acc_prune_ratio.png)
