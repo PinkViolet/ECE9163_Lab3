@@ -1,5 +1,7 @@
 # Lab 3
 
+![teaser](acc_prune_ratio.png)
+
 ```bash
 ├── data 
     └── cl
@@ -11,6 +13,9 @@
 ├── models
     └── bd_net.h5
     └── bd_weights.h5
+    └── repair_net_two_percent.h5
+    └── repair_net_four_percent.h5
+    └── repair_net_ten_percent.h5
 ├── architecture.py
 └── eval.py // this is the evaluation script
 ```
@@ -28,14 +33,17 @@
    2. The dataset contains images from YouTube Aligned Face Dataset. We retrieve 1283 individuals and split into validation and test datasets.
    3. bd_valid.h5 and bd_test.h5 contains validation and test images with sunglasses trigger respectively, that activates the backdoor for bd_net.h5. 
 
-## III. Evaluating the Backdoored Model
+## III. Models
+   1. Download the models from [here](https://drive.google.com/drive/folders/1Wpd4V7Uaw5yBfJ6PytUx3a4A6Fp2YayR?usp=sharing)
+
+## IV. Evaluating the Backdoored Model
    1. The DNN architecture used to train the face recognition model is the state-of-the-art DeepID network. 
    2. To evaluate the backdoored model, execute `eval.py` by running:  
-      `python3 eval.py <clean validation data directory> <poisoned validation data directory> <model directory>`.
+      `python3 eval.py --bd_model <backdoor model path> --repair_model <repaired model path> --val_data <validation data path> --backdoor_data <backdoor data path>`.
       
-      E.g., `python3 eval.py data/cl/valid.h5 data/bd/bd_valid.h5 models/bd_net.h5`. This will output:
-      Clean Classification accuracy: 98.64 %
+      E.g., `python3 eval.py --bd_model models/bd_net.h5 --repair_model models/repair_net_two_percent.h5 --val_data data/cl/valid.h5 --backdoor_data data/bd/bd_valid.h5`. This will output:
+      Clean Classification accuracy: 95.75 %
       Attack Success Rate: 100 %
 
-## IV. Important Notes
+## V. Important Notes
 Please use only clean validation data (valid.h5) to design the pruning defense. And use test data (test.h5 and bd_test.h5) to evaluate the models. 
