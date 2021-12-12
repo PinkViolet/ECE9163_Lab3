@@ -47,11 +47,11 @@
 Please use only clean validation data (valid.h5) to design the pruning defense. And use test data (test.h5 and bd_test.h5) to evaluate the models. 
 
 ## VI. Results
-![teaser](acc_prune_ratio.png)
-
 | Performance Decay | Accuracy | Attack Success Rate |
 | :---: | :---: | :---: |
 | 2% | 95.76% | 100% |
 | 4% | 92.09 % | 99.98% |
 | 10% | 84.44% | 77.21% |
 | 30% | 54.86% | 6.96% |
+
+![teaser](acc_prune_ratio.png)
